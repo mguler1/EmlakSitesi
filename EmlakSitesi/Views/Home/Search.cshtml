@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EmlakSitesi.Models.Ilan>
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="container">
+    
+    <div class="row">
+        @Html.Action("PartialFiltre", "Home")
+
+        <br />
+        <!--ilan listesi-->
+        <!--<div class="row">-->
+        @foreach (var item in Model)
+        {
+            var c = 1;
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    @foreach (var rsm in ViewBag.imgs)
+                    {
+                        if (rsm.IlanId == item.IlanID)
+                        {
+                            if (@c == 1)
+                            {
+                                <a href="/Home/Detay/" @item.IlanID>  <img src="/Content/Resimler/@rsm.ResimAd" style="height:200px"></a>
+                                c++;
+                            }
+
+                        }
+                    }
+
+                    <div class="caption">
+                        <p><strong>@item.Tip.Durum.DurumAd </strong>(@item.Tip.TipAd)</p>
+                        <p> @item.Mahalle.Semt.Sehir.SehirAd-@item.Mahalle.Semt.SemtAd </p>
+                        <p>
+                            <button class="btn" style="background-color:red;color:white">@item.Fiyat ₺</button>
+                            <button class="btn btn-primary">@item.Alan m<sup>2</sup></button>
+                            <button class="btn btn-success pull-right"><i class="fa fa-bed" aria-hidden="true"></i> @item.OdaSayisi</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+</div>
+

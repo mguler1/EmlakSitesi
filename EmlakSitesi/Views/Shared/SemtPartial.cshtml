@@ -1,0 +1,8 @@
+﻿<option value="">Semt Seç</option>
+@if (ViewBag.semtListesi!=null)
+{
+    foreach(var item in ViewBag.semtListesi)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}
