@@ -30,7 +30,7 @@ namespace EmlakSitesi.Identıty
             {
                 var store = new UserStore<ApplicationUSer>(context);
                 var manager = new UserManager<ApplicationUSer>(store);
-                var user = new ApplicationUSer() { Name = "mehdi", SurName = "güler" ,UserName="deneme",Email="mehti.guler@gmail.com"};
+                var user = new ApplicationUSer() { Name = "mehdi", SurName = "güler" ,UserName="deneme",Email="deneme.guler@gmail.com"};
                 manager.Create(user,"123456");
                 manager.AddToRole(user.Id, "admin");
                 manager.AddToRole(user.Id, "user");
